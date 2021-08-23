@@ -2,9 +2,11 @@ import discord
 import handleCommands
 
 class Ninekbot:
-    def __init__(self, token, client):
+    def __init__(self, token, client, mongoClient, collection):
         self.token = token
         self.client = client
+        self.mongoClient = mongoClient
+        self.collection = collection
 
         @client.event
         async def on_ready():
@@ -26,7 +28,7 @@ class Ninekbot:
             if message.author.bot:
                 return
             
-            await handleCommands.handleCommands(self.client, message)
+            await handleCommands.handleCommands(self.client, message, collection)
 
 
     def startup(self):

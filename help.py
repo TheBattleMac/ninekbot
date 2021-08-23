@@ -8,6 +8,6 @@ class Help(handler.Handler):
         if message.content in patterns:
             return True
 
-    async def handle(self, message, client):
+    async def handle(self, message, client, collection):
         await message.channel.send("This will be the help message")
 

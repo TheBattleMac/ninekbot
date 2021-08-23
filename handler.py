@@ -3,6 +3,6 @@ class Handler:
         #check if a message can be handled by the handler
         raise NotImplementedError("Please implement can_handle for all handling classes")
 
-    async def handle(self, message):
+    async def handle(self, message, client, collection):
         #handles the message
         raise NotImplementedError("Please implement the handle function for all handling classes")
