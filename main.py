@@ -2,6 +2,7 @@ import discord
 import os
 import ninekbot
 import pymongo
+import requests
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,4 +18,8 @@ collection = mongoClient['Allin_DB']['nephest']
 client = discord.Client()
 bot = ninekbot.Ninekbot(token, client, mongoClient, collection)
 
-bot.startup()
+print(discord.__version__)
+print(pymongo.__version__)
+print(requests.__version__)
+
+#bot.startup()
