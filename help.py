@@ -9,5 +9,5 @@ class Help(handler.Handler):
             return True
 
     async def handle(self, message, client, collection):
-        await message.channel.send("This will be the help message")
+        await message.channel.send("!addladder <nephest url> <name> \n!ladderheroes")
 

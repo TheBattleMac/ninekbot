@@ -25,10 +25,12 @@ class ladderHeroesUpload(handler.Handler):
                 id = id[0]
                 self.id = id
                 self.name = params[2]
+                self.discord_id = message.author.id
 
                 data = {'url': self.url,
                         'neph_id': id,
-                        'name': self.name}
+                        'name': self.name,
+                        'discord_id': self.discord_id}
 
                 rec_id = collection.insert_one(data)
             except:

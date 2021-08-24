@@ -1,0 +1,4 @@
+requests
+pip
+discord.py
+random
