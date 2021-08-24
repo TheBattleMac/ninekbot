@@ -18,8 +18,4 @@ collection = mongoClient['Allin_DB']['nephest']
 client = discord.Client()
 bot = ninekbot.Ninekbot(token, client, mongoClient, collection)
 
-print(discord.__version__)
-print(pymongo.__version__)
-print(requests.__version__)
-
-#bot.startup()
+bot.startup()
