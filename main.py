@@ -2,7 +2,7 @@ import discord
 import os
 import ninekbot
 import pymongo
-import requests
+import dotenv
 
 from dotenv import load_dotenv
 load_dotenv()
