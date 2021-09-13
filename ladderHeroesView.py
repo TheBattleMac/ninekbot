@@ -78,7 +78,7 @@ class ladderHeroesView(handler.Handler):
                 if entry['server_id'] == message.guild.id:
                     try:
                         url = 'https://nephest.com/sc2/api/character/' + neph_id + '/common'
-                        response = requests.get(url)#, verify=False) #temp fix, just to get around heroku's free tier lack of ssl certificate
+                        response = requests.get(url, verify=False) #temp fix, just to get around heroku's free tier lack of ssl certificate
                         if response.status_code != 404:
                             response = response.json()
 
