@@ -22,7 +22,7 @@ class ladderHeroesView(handler.Handler):
                 seen[neph_id] = 1
 
                 url = 'https://nephest.com/sc2/api/character/' + neph_id + '/common'
-                response = requests.get(url)
+                response = requests.get(url, verify=False)
                 response = response.json()
 
                 teams = response['teams']
