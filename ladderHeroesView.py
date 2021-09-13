@@ -69,6 +69,7 @@ class ladderHeroesView(handler.Handler):
         seen = dict()
 
         players = []
+        current_season = 48
 
         for entry in items:
             neph_id = entry['neph_id']
@@ -78,7 +79,7 @@ class ladderHeroesView(handler.Handler):
                 if entry['server_id'] == message.guild.id:
                     try:
                         url = 'https://nephest.com/sc2/api/character/' + neph_id + '/common'
-                        response = requests.get(url, verify=False) #temp fix, just to get around heroku's free tier lack of ssl certificate
+                        response = requests.get(url)#, verify=False) #temp fix, just to get around heroku's free tier lack of ssl certificate
                         if response.status_code != 404:
                             response = response.json()
 
@@ -88,7 +89,7 @@ class ladderHeroesView(handler.Handler):
                             loses = 0
                             j = 0
                             for team in teams:
-                                if j < 4:
+                                if j < 4 and team['season'] == current_season:
                                     if len(team['members']) == 1:
                                         #dont need to save these, leaving this here for potential updates in the future
                                         wins += team['wins'] 
