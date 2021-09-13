@@ -1,5 +1,6 @@
 import handler
 import requests
+from datetime import datetime
 
 patterns = ['!ladderheroes', '!LADDERHEROES', '!Ladderheroes', '!Ladderheroes']
 
@@ -12,23 +13,59 @@ class ladderHeroesView(handler.Handler):
             i = len(players) - 1
             rank = 1
             while i != 0:
-                msg = msg + str(rank) + "." + players[i][0] + ": " + str(players[i][1]) + "\n"
+                msg = msg + str(rank) + ". " + players[i][0] + ": " + str(players[i][1]) + "\n"
                 rank += 1
                 i -= 1
-            msg = msg + str(rank) + "." + players[i][0] + ": " + str(players[i][1])
+            msg = msg + str(rank) + ". " + players[i][0] + ": " + str(players[i][1])
 
         if msg == "":
             msg = "No heroes :("
 
         return msg
 
+    def createCache(self, players, cache):
+        data = dict()
+        data['time'] = datetime.now()
+
+        if not len(players) == 0:
+            i = len(players) - 1
+            rank = 1
+            data['players'] = i + 1
+            while i != 0:
+                data[str(rank)] = players[i][0]
+                data[str(rank) + "games"] = players[i][1]
+
+        cache = data
+
     def can_handle(self, message):
         if message.content in patterns:
             return True
 
-    async def handle(self, message, client, collection):
-        items = collection.find()
-
+    async def handle(self, message, client, collection, cache):
+        #check if cache is empty
+        #if cache:
+         #   ctime = cache['time']
+          #  ctime = datetime.strptime(ctime, '%Y-%m-%d %H:%M:%S.%f')
+#
+ #           time_delta = datetime.now() - ctime
+#
+ #           minutes = time_delta.total_seconds() / 60
+#
+ #           #in this case we are good to use cached results
+  #          if int(minutes) > 0 and int(minutes) < 15:
+   #             num_players = cache['players']
+    #            i = num_players - 1
+     #           rank = 1
+      #          msg = ""
+       #         while i != 0:
+        #            msg = msg + str(rank) + ". " + cache[str(rank)] + ": " + cache(str(rank)+"games") + "\n"
+         #           rank += 1
+          #          i -= 1
+           #     msg = msg + str(rank) + ". " + players[i][0] + ": " + str(players[i][1])
+            #    await message.channel.send(msg)
+             #   return              
+            
+        items = collection['nephest'].find()
         seen = dict()
 
         players = []
@@ -61,7 +98,6 @@ class ladderHeroesView(handler.Handler):
                             players.append((entry['name'],wins+loses))
                     except:
                         print('bad url in the database')
-
+       # self.createCache(players, cache)
         msg = self.createReturnMsg(players)
-        
         await message.channel.send(msg)

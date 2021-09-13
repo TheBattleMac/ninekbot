@@ -9,7 +9,7 @@ class lobsters(handler.Handler):
         if message.content in patterns:
             return True
 
-    async def handle(self, message, client, collection):
+    async def handle(self, message, client, collection, cache):
         roll = random.uniform(0,1)
         msg = "Shh they're sleeping"
         if roll <= .2:

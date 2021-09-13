@@ -11,7 +11,7 @@ class ladderHeroesUpload(handler.Handler):
 
         return False
 
-    async def handle(self, message, client, collection):
+    async def handle(self, message, client, collection, cache):
         params = message.content.split(' ')
         if len(params) != 3:
             await message.channel.send("Wrong format, to add your profile please do something like \"!addladder https://www.nephest.com/sc2/?type=character&id=85067&m=1#player-stats-summary ninek\". Make sure to include your username as well")
@@ -33,7 +33,7 @@ class ladderHeroesUpload(handler.Handler):
                         'discord_id': self.discord_id,
                         'server_id': server_id}
 
-                rec_id = collection.insert_one(data)
+                rec_id = collection['nephest'].insert_one(data)
             except:
                 await message.channel.send("Something went wrong, Call ninek")
             await message.channel.send("You're in the database :+1:")

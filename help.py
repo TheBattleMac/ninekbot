@@ -8,6 +8,6 @@ class Help(handler.Handler):
         if message.content in patterns:
             return True
 
-    async def handle(self, message, client, collection):
-        await message.channel.send("!addladder <nephest url> <name> \n!ladderheroes")
+    async def handle(self, message, client, collection, cache):
+        await message.channel.send("!addladder <nephest url> <name> \n!ladderheroes \n!roll")
 
