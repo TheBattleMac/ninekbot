@@ -36,4 +36,4 @@ class ladderHeroesUpload(handler.Handler):
                 rec_id = collection['nephest'].insert_one(data)
             except:
                 await message.channel.send("Something went wrong, Call ninek")
-            await message.channel.send("You're in the database :+1:")
+            await message.channel.send("Urine in the database :+1:")
