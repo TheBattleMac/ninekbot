@@ -5,23 +5,6 @@ patterns = ['!ladderheroes', '!LADDERHEROES', '!Ladderheroes', '!Ladderheroes']
 
 class ladderHeroesView(handler.Handler):
 
-    def createReturnMsg(self, players):
-        players.sort(key = lambda x: x[1])
-        msg = ""
-        if not len(players) == 0:
-            i = len(players) - 1
-            rank = 1
-            while i != 0:
-                msg = msg + str(rank) + ". " + players[i][0] + ": " + str(players[i][1]) + "\n"
-                rank += 1
-                i -= 1
-            msg = msg + str(rank) + ". " + players[i][0] + ": " + str(players[i][1])
-
-        if msg == "":
-            msg = "No heroes :("
-
-        return msg
-
     def can_handle(self, message):
         if message.content in patterns:
             return True
