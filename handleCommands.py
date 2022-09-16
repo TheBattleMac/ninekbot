@@ -1,6 +1,5 @@
 import discord
 import help
-import ladderHeroesUpload
 import ladderHeroesView
 import importantThings
 import monobattleRoller
@@ -8,7 +7,6 @@ import monobattleRoller
 handlers = []
 
 helpClass=help.Help()
-ladderUploadClass=ladderHeroesUpload.ladderHeroesUpload()
 ladderHeroesView = ladderHeroesView.ladderHeroesView()
 lobsters = importantThings.lobsters()
 roller = monobattleRoller.monobattleRoller()
