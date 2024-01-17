@@ -3,8 +3,8 @@ import handler
 class findTheBastard(handler.Handler):
     
     def can_handle(self, message):
-        print(message.channel.id, message.channel)
-        if message.channel.id == "1026511751346397205":
+        #print(message.channel.id, message.channel)
+        if message.channel is "upper-bracket":
             return True
 
     async def handle(self, message, client, collection, cache):
