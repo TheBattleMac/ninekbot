@@ -7,12 +7,12 @@ import findTheBastard
 handlers = []
 
 helpClass=help.Help()
-ladderHeroesView = ladderHeroesView.ladderHeroesView()
+#ladderHeroesView = ladderHeroesView.ladderHeroesView()
 lobsters = importantThings.lobsters()
 roller = monobattleRoller.monobattleRoller()
 bastardFinder = findTheBastard.findTheBastard()
 handlers.append(helpClass)
-handlers.append(ladderHeroesView)
+#handlers.append(ladderHeroesView)
 handlers.append(lobsters)
 handlers.append(roller)
 handlers.append(bastardFinder)
