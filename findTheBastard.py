@@ -4,8 +4,9 @@ class findTheBastard(handler.Handler):
     
     def can_handle(self, message):
         #print(message.channel.id, message.channel)
-        print(message.channel, message.channel is "upper-bracket")
-        if message.channel is "upper-bracket":
+        var = message.channel
+        print(var, var == "upper-bracket")
+        if var == "upper-bracket":
             print(message.content)
             print(message.author.name)
             return True
