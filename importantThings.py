@@ -14,5 +14,7 @@ class lobsters(handler.Handler):
         msg = "Shh they're sleeping"
         if roll <= .1 or client.user.id == "314200471088922636":
             msg = "https://i.imgur.com/BMcur.gif"
+        elif client.user.id == "995535732695379988":
+            msg = "Go home Badger!"
         await message.channel.send(msg)
 
