@@ -12,7 +12,7 @@ class lobsters(handler.Handler):
     async def handle(self, message, client, collection, cache):
         roll = random.uniform(0,1)
         msg = "Shh they're sleeping"
-        if roll <= .01 or client.user.id == "314200471088922636":
+        if roll <= .1 or client.user.id == "314200471088922636":
             msg = "https://i.imgur.com/BMcur.gif"
         await message.channel.send(msg)
 
