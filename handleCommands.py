@@ -19,7 +19,6 @@ handlers.append(bastardFinder)
 
 async def handleCommands(client, message, collection, cache):
     for x in handlers:
-        message = message.lower() # always lowercase
         if x.can_handle(message):
             await x.handle(message, client, collection, cache)
 
